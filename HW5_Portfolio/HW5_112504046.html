@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<title>112504046_Portfolio</title>
+<style>
+  body{font-family: "Noto Sans TC", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;}
+  .wrap{width:560px;margin:24px auto;}
+  table{width:100%;border-collapse:separate;border-spacing:0;}
+  th,td{border:1px solid #555;padding:8px 10px;vertical-align:top;}
+  .bar th{background:#7e9aa5;color:#fff;font-weight:700;text-align:center;}
+  h1{margin:0;font-size:20px;}
+  /* 三欄寬度（老師窄版） */
+  col.photo{width:160px;}
+  col.label{width:100px;}
+  col.content{width:auto;}
+  /* 照片 */
+  .photo-box img{width:150px;display:block}
+  /* 列表 */
+  ul{margin:6px 0 6px 20px}
+  /* 音樂列（直向：icon 可點、下方歌名文字） */
+  .music-item{display:flex;align-items:center;gap:10px;margin:12px 0;}
+  .music-item img{width:28px;height:28px;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <table>
+    <colgroup>
+      <col class="photo"><col class="label"><col class="content">
+    </colgroup>
+
+    <!-- 頁首 -->
+    <tr class="bar">
+      <th colspan="3"><h1>歡迎來到芳毓的個人作品集</h1></th>
+    </tr>
+
+    <!-- 個人資料 -->
+    <tr class="bar"><th colspan="3">個人資料</th></tr>
+    <tr>
+      <!-- 左欄：照片跨四列 -->
+      <td rowspan="4" class="photo-box">
+        <img src="photo.jpeg" alt="profile photo"><br>個人照片
+      </td>
+      <td>姓名</td><td>林芳毓</td>
+    </tr>
+    <tr><td>學校</td><td>國立政治大學</td></tr>
+    <tr><td>科系</td><td>財政學系</td></tr>
+    <tr><td>年級</td><td>大三</td></tr>
+
+    <!-- 學習歷程 -->
+ <tr class="bar"><th colspan="3">學習歷程</th></tr>
+
+<tr>
+  <td>程式語言</td>
+  <td colspan="2">
+    <ul style="margin:6px 0 6px 22px;">
+      <li>Python 基礎</li>
+      <li>HTML 入門</li>
+    </ul>
+  </td>
+</tr>
+
+<tr>
+  <td>修課紀錄</td>
+  <td colspan="2">
+    <ul style="margin:6px 0 6px 22px;">
+      <li>計算機概論</li>
+      <li>程式設計入門</li>
+    </ul>
+  </td>
+</tr>
+
+
+    <!-- 作品集 -->
+    <tr class="bar"><th colspan="3">作品集</th></tr>
+    <tr>
+      <td colspan="3">
+        <p><strong>作業連結清單</strong></p>
+        <ul>
+          <li><a href="https://github.com/Reese0906/1141_IntroToCS_112504046/tree/main/HW1_Github" target="_blank">作業 1</a></li>
+          <li><a href="https://github.com/Reese0906/1141_IntroToCS_112504046/tree/main/HW2_DeepDreamGenerator" target="_blank">作業 2</a></li>
+          <li><a href="https://github.com/Reese0906/1141_IntroToCS_112504046/tree/main/HW3_Excel1" target="_blank">作業 3</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <p><strong>我的最愛音樂</strong></p>
+        <!-- B 版：點 icon 開 YouTube，下面文字顯示歌名 -->
+        <div class="music-item">
+          <a href="https://youtu.be/a2GujJZfXpg?si=fcCvS0kKrn2r8epI" target="_blank" rel="noopener">
+            <img src="music.png" alt="music icon">
+          </a>
+          <div>Sparkle</div>
+        </div>
+        <div class="music-item">
+          <a href="https://youtu.be/n89SKAymNfA?si=uEp70Due5VBaYYC4" target="_blank" rel="noopener">
+            <img src="music.png" alt="music icon">
+          </a>
+          <div>Nandemonaiya</div>
+        </div>
+        <div class="music-item">
+          <a href="https://youtu.be/PDSkFeMVNFs?si=5Tnwt8x3gFcRLDOj" target="_blank" rel="noopener">
+            <img src="music.png" alt="music icon">
+          </a>
+          <div>前前前世</div>
+        </div>
+      </td>
+    </tr>
+
+    <!-- 聯絡方式 -->
+    <tr class="bar"><th colspan="3">聯絡方式</th></tr>
+    <tr>
+      <td colspan="3">
+        聯絡信箱：<a href="mailto:112504046@nccu.edu.tw">112504046@nccu.edu.tw</a><br>
+        <img src="school.png" alt="school logo" style="width:72px;height:auto;margin-top:8px;">
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
