@@ -1,0 +1,131 @@
+/* ---------- Body ---------- */
+body {
+  color: #333;
+  background-color: #f3f3f3;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Header ---------- */
+.header {
+  background-color: #4a98d0;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  width: 100%;
+}
+
+.header h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 48px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.header p {
+  font-size: 22px;
+  margin: 10px 0 0 0;
+}
+
+/* ---------- Navbar 灰底白字，四等份 ---------- */
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #2f3e50;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 22px;               
+  font-weight: 700;
+}
+
+/* 每一格平均分配 */
+.navbar li {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+/* 預設：白字灰底 */
+.navbar li a {
+  display: block;
+  padding: 16px 0;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+}
+
+/* 滑過變藍字（灰底不變） */
+.navbar li a:hover {
+  color: #4a98d0;
+}
+
+/* 讓 Services 在 hover 時也變藍字 */
+.dropdown:hover > a {
+  color: #4a98d0;
+}
+
+/* ---------- Dropdown ---------- */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 54px;                    
+  left: 50%;
+  transform: translateX(-50%); 
+  background-color: #2f3e50;
+  min-width: 300px;            
+  box-shadow: 0 15px 25px rgba(0,0,0,0.30);
+  border-radius: 12px;
+  padding: 12px 0;
+  z-index: 10;
+}
+
+.dropdown-content li {
+  list-style-type: none;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 18px 28px;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 24px;             
+}
+
+.dropdown-content a:hover {
+  background-color: #1f2a35;
+}
+
+/* hover 時展開 */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ---------- Content ---------- */
+.content {
+  width: 100%;          
+  max-width: none;      
+  margin: 40px 0 0 0;   
+  padding: 0;           
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: left;     
+}
+
+
+
+/* ---------- Media ---------- */
+@media all {
+  body {
+    font-size: 1em;
+  }
+}
+
+@media print {
+  .header, .navbar, .dropdown-content {
+    display: none;
+  }
+}
