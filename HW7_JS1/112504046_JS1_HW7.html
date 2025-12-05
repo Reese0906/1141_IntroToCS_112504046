@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>112504046_JS1_HW7</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .container {
+    width: 380px;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  }
+  h1 {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 0;
+    color: #111827;
+  }
+  label {
+    font-size: 14px;
+    color: #374151;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 12px 0;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 2px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+  }
+  input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.25);
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 14px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  button:hover {
+    background-color: #1d4ed8;
+  }
+  button:active {
+    transform: scale(0.98);
+  }
+  #record {
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    min-height: 160px;
+    border: 1px solid #d1d5db;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #111827;
+    overflow-y: auto;
+    max-height: 260px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>112504046_1A2B</h1>
+
+  <label>Enter 4 unique numbers</label>
+  <input type="text" id="guessInput" maxlength="4">
+  <button onclick="myFunction()">Guess!</button>
+
+  <div id="record">
+    Game Record :<br>
+  </div>
+</div>
+
+
+<script>
+let answer = generateAnswer();
+let count = 0;
+
+function myFunction() {
+  play();
+}
+
+function generateAnswer() {
+  let pool = [];
+  for (let i = 0; i < 10; i++) pool.push(i);
+
+  let result = "";
+  while (result.length < 4) {
+    const idx = Math.floor(Math.random() * pool.length);
+    result += pool[idx];
+    pool.splice(idx, 1);
+  }
+  return result;
+}
+
+function play() {
+  const inputField = document.getElementById("guessInput");
+  const guess = inputField.value;
+  inputField.value = "";
+
+  if (!isValid(guess)) {
+    alert("Invalid input: enter 4 unique digits.");
+    return;
+  }
+
+  count++;
+  const ab = checkAB(guess, answer);
+
+  const record = document.getElementById("record");
+  record.innerHTML += `第${count}次: ${guess} → ${ab}<br>`;
+}
+
+function isValid(str) {
+  if (str.length !== 4) return false;
+  if (!/^\d{4}$/.test(str)) return false;
+  if (new Set(str).size !== 4) return false;
+  return true;
+}
+
+function checkAB(guess, ans) {
+  let A = 0, B = 0;
+  const g = guess.split("");
+  const a = ans.split("");
+
+  for (let i = 0; i < 4; i++) {
+    if (g[i] === a[i]) A++;
+    else if (a.includes(g[i])) B++;
+  }
+  return `${A}A${B}B`;
+}
+
+console.log("Answer for testing:", answer);
+</script>
+
+</body>
+</html>

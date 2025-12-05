@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>1A2B Game</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  #record {
+    margin-top: 15px;
+    padding: 12px;
+    border: 1px solid #aaa;
+    min-height: 200px;
+  }
+</style>
+</head>
+<body>
+
+<h1>112504046_HW6_1A2B</h1>
+
+<label>Enter 4 unique numbers</label>
+<input type="text" id="guessInput" maxlength="4">
+<button onclick="myFunction()">Guess!</button>
+
+<div id="record">
+  <strong>Game Record :</strong><br>
+</div>
+
+<script>
+let answer = generateAnswer();
+let count = 0;
+
+// 包裝 onclick
+function myFunction() {
+  play();
+}
+
+// 1. 產生不重複四位數
+function generateAnswer() {
+  let pool = [];
+  for (let i = 0; i < 10; i++) pool.push(i);
+
+  let result = "";
+  while (result.length < 4) {
+    const idx = Math.floor(Math.random() * pool.length);
+    result += pool[idx];
+    pool.splice(idx, 1);
+  }
+  return result;
+}
+
+// 2. 遊戲流程
+function play() {
+  const inputField = document.getElementById("guessInput");
+  const guess = inputField.value;
+  inputField.value = "";
+
+  if (!isValid(guess)) {
+    alert("Invalid input: enter 4 unique digits.");
+    return;
+  }
+
+  count++;
+  const ab = checkAB(guess, answer);
+
+  const record = document.getElementById("record");
+  record.innerHTML += `第${count}次: ${guess} → ${ab}<br>`;
+
+  if (ab === "4A0B") {
+    alert(`Correct! Attempts: ${count}`);
+    location.reload();
+  }
+}
+
+// 3. 輸入驗證
+function isValid(str) {
+  if (str.length !== 4) return false;
+  if (!/^\d{4}$/.test(str)) return false;
+  if (new Set(str).size !== 4) return false;
+  return true;
+}
+
+// 4. 算 A/B
+function checkAB(guess, ans) {
+  let A = 0, B = 0;
+  const g = guess.split("");
+  const a = ans.split("");
+
+  for (let i = 0; i < 4; i++) {
+    if (g[i] === a[i]) A++;
+    else if (a.includes(g[i])) B++;
+  }
+  return `${A}A${B}B`;
+}
+
+console.log("Answer for testing:", answer);
+</script>
+
+</body>
+</html>
