@@ -32,12 +32,3 @@ th, td {
 th {
   background-color: #f0f0f0;
 }
-#mathInput {
-  -moz-appearance: textfield;   
-}
-
-#mathInput::-webkit-outer-spin-button,
-#mathInput::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
